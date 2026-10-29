@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Sebastian – Reels-Schnitt, Social-Media-Betreuung und Admin-Support. Freelancer aus Karlsruhe, 100 % remote.">
+<title>Portfolio Sebastian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: schmale Textspalte links, Reels als Hochformat-Streifen; Preise als Tabelle mit Zeitangaben */
+:root{
+  --bg:#F3F5FA; --surface:#FFFFFF; --ink:#141A2E; --muted:#5A6380; --line:#DCE1EE;
+  --accent:#2E47E6; --accent-ink:#FFFFFF; --tint:#E6EAFF;
+  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1220; --surface:#161B2E; --ink:#EEF1FA; --muted:#A3ABC7; --line:#2A3150;
+  --accent:#8C9BFF; --accent-ink:#0E1220; --tint:#1F2747; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1220; --surface:#161B2E; --ink:#EEF1FA; --muted:#A3ABC7; --line:#2A3150;
+  --accent:#8C9BFF; --accent-ink:#0E1220; --tint:#1F2747; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1040px;margin:0 auto;padding-block:clamp(32px,6vw,72px);display:grid;gap:clamp(48px,8vw,88px)}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,7vw,4.4rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+header{display:grid;gap:20px;max-width:46rem}
+header .lead{font-size:clamp(1.05rem,2.2vw,1.25rem);color:var(--muted);max-width:38rem}
+header .lead strong{color:var(--ink);font-weight:600}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.85rem;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--tint);color:var(--ink)}
+.hl{background:linear-gradient(transparent 62%, var(--tint) 62%)}
+
+section{display:grid;gap:24px}
+.sec-head{display:grid;gap:8px;max-width:40rem}
+.sec-head p{color:var(--muted)}
+
+.reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2.5vw,28px)}
+.reel{display:grid;gap:12px;min-width:0}
+.phone{position:relative;aspect-ratio:9/16;max-width:100%;border-radius:22px;overflow:hidden;background:var(--ink);
+  border:6px solid var(--ink);box-shadow:0 18px 40px -24px rgba(20,26,46,.55)}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+.reel .meta{display:grid;gap:2px}
+.reel .meta p{font-size:.92rem;color:var(--muted)}
+
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.svc{background:var(--surface);padding:24px;display:grid;gap:8px;align-content:start;min-width:0}
+.svc p{color:var(--muted);font-size:.95rem}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;min-width:520px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+tr:last-child td{border-bottom:0}
+td.price{font-family:var(--display);font-weight:700;font-size:1.1rem;white-space:nowrap}
+.note{font-size:.85rem;color:var(--muted)}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.step{display:grid;gap:6px;min-width:0}
+.step .n{font-family:var(--mono);color:var(--accent);font-size:.85rem}
+.step p{color:var(--muted);font-size:.95rem}
+
+.contact{background:var(--accent);color:var(--accent-ink);border-radius:20px;padding:clamp(24px,5vw,44px);display:grid;gap:14px}
+.contact p{max-width:36rem;opacity:.92}
+
+footer{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
+
+@media (max-width:760px){
+  .reels{grid-template-columns:repeat(3,minmax(140px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+  .reel{scroll-snap-align:start}
+  .services,.steps{grid-template-columns:1fr}
+}
+@media (max-width:480px){ .reels{grid-template-columns:repeat(3,72%)} }
+@media (prefers-reduced-motion: reduce){ .phone video{animation:none} }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="label">Freelancer · Karlsruhe · 100 % remote</span>
+    <h1>Reels, die man <span class="hl">zu Ende schaut.</span></h1>
+    <p class="lead">Ich bin Sebastian. Ich schneide <strong>Kurzvideos für Instagram, TikTok und Facebook</strong>, betreue Social-Media-Kanäle für kleine Betriebe und übernehme Büroarbeit, die liegen bleibt.</p>
+    <div class="facts">
+      <span class="chip">Reels &amp; Shorts</span>
+      <span class="chip">Captions &amp; Untertitel</span>
+      <span class="chip">Canva &amp; CapCut</span>
+      <span class="chip">Lieferung in 24–48 h</span>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-reels">
+    <div class="sec-head">
+      <span class="label">Arbeitsproben</span>
+      <h2 id="h-reels">Drei Formate, drei Branchen</h2>
+      <p>Beispielprojekte mit fiktiven Marken, um Stil und Tempo zu zeigen. Mit deinem Rohmaterial baue ich dir gern ein kostenloses Probe-Reel.</p>
+    </div>
+    <div class="reels">
+      <article class="reel">
+        <div class="phone"><video src="reels/reel_cafe.mp4" poster="reels/cafe.jpg" autoplay muted loop playsinline aria-label="Beispiel-Reel für ein Café"></video></div>
+        <div class="meta"><h3>Café · Angebot des Tages</h3><p>Hook in der ersten Sekunde, Aktion, klarer Call-to-Action.</p></div>
+      </article>
+      <article class="reel">
+        <div class="phone"><video src="reels/reel_kerzen.mp4" poster="reels/kerzen.jpg" autoplay muted loop playsinline aria-label="Beispiel-Reel für einen Onlineshop"></video></div>
+        <div class="meta"><h3>Onlineshop · Geschenkidee</h3><p>Problem, Lösung, Produktvorteile, Kauf-Aufruf.</p></div>
+      </article>
+      <article class="reel">
+        <div class="phone"><video src="reels/reel_handwerk.mp4" poster="reels/handwerk.jpg" autoplay muted loop playsinline aria-label="Beispiel-Reel für einen Handwerksbetrieb"></video></div>
+        <div class="meta"><h3>Handwerk · „3 Fehler“-Format</h3><p>Listen-Reel, das Fachwissen zeigt und Anfragen bringt.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-svc">
+    <div class="sec-head">
+      <span class="label">Leistungen</span>
+      <h2 id="h-svc">Was ich dir abnehme</h2>
+    </div>
+    <div class="services">
+      <div class="svc"><h3>Reels-Schnitt</h3><p>Du schickst Rohclips, ich liefere fertige Reels mit Schnitt, Captions, Musik und Hook.</p></div>
+      <div class="svc"><h3>Social-Media-Betreuung</h3><p>Redaktionsplan, Posts, Stories und Texte. Du gibst frei, ich veröffentliche.</p></div>
+      <div class="svc"><h3>Profil-Aufbau</h3><p>Business-Profil einrichten, Bio, Highlights und einheitliche Vorlagen in Canva.</p></div>
+      <div class="svc"><h3>Büro &amp; Verwaltung</h3><p>Datenpflege, Recherche, E-Mail-Postfach und Terminorganisation, alles remote.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-price">
+    <div class="sec-head">
+      <span class="label">Preise</span>
+      <h2 id="h-price">Klar kalkuliert</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Leistung</th><th>Umfang</th><th>Lieferzeit</th><th>Preis</th></tr></thead>
+        <tbody>
+          <tr><td>Probe-Reel</td><td>1 Reel aus deinem Material</td><td>24 h</td><td class="price">kostenlos</td></tr>
+          <tr><td>Reel-Schnitt</td><td>bis 30 Sek., Captions inklusive</td><td>24–48 h</td><td class="price">ab 25 €</td></tr>
+          <tr><td>Reel-Paket</td><td>8 Reels pro Monat</td><td>laufend</td><td class="price">auf Anfrage</td></tr>
+          <tr><td>Social-Media-Betreuung</td><td>Posts, Stories, Planung</td><td>monatlich</td><td class="price">auf Anfrage</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Kleinunternehmer gemäß § 19 UStG, daher wird keine Umsatzsteuer berechnet.</p>
+  </section>
+
+  <section aria-labelledby="h-how">
+    <div class="sec-head">
+      <span class="label">Ablauf</span>
+      <h2 id="h-how">So läuft die Zusammenarbeit</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1 · Material</span><h3>Du schickst Clips</h3><p>Handyvideos reichen. Dazu kurz, was das Reel erreichen soll.</p></div>
+      <div class="step"><span class="n">2 · Schnitt</span><h3>Ich baue das Reel</h3><p>Hook, Tempo, Untertitel, Musik. Du bekommst die Datei zur Freigabe.</p></div>
+      <div class="step"><span class="n">3 · Feedback</span><h3>Eine Korrekturrunde</h3><p>Änderungswünsche setze ich um, danach gehört das Reel dir.</p></div>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Lust auf ein Probe-Reel?</h2>
+    <p>Schreib mir über die Plattform, auf der du mich gefunden hast, und schick 1–2 Rohclips mit. Du bekommst dein Probe-Reel innerhalb von 24 Stunden.</p>
+  </section>
+
+  <footer>Sebastian · Social Media, Content &amp; Admin-Support · Karlsruhe</footer>
+</div>
+
+</body>
+</html>
